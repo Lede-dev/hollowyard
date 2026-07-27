@@ -109,6 +109,45 @@ a {
   text-transform: uppercase;
 }
 
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+}
+
+.language-switch button {
+  min-width: 32px;
+  padding: 6px 7px;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.language-switch button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--acid);
+}
+
+.language-switch button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(410px, 0.88fr);
@@ -146,6 +185,17 @@ a {
 .hero h1 span {
   color: transparent;
   -webkit-text-stroke: 2px var(--ink);
+}
+
+[data-language="ko"] .hero h1 {
+  max-width: 950px;
+  font-size: clamp(4rem, 7.4vw, 8.4rem);
+  letter-spacing: -0.09em;
+  line-height: 0.88;
+}
+
+[data-language="ko"] .hero h1 span {
+  letter-spacing: -0.1em;
 }
 
 .hero-bottom {
@@ -521,6 +571,13 @@ a {
   font-weight: 400;
 }
 
+[data-language="ko"] .manifesto-title h2 {
+  font-size: clamp(3.5rem, 5.9vw, 6.9rem);
+  letter-spacing: -0.075em;
+  line-height: 0.96;
+  word-break: keep-all;
+}
+
 .workflow-list {
   align-self: end;
   border-top: 1px solid rgba(243, 240, 232, 0.35);
@@ -680,6 +737,19 @@ a {
   font-weight: 400;
 }
 
+[data-language="ko"] .closing h2 {
+  max-width: 1250px;
+  font-size: clamp(4.8rem, 8.9vw, 10.4rem);
+  line-height: 0.86;
+  word-break: keep-all;
+}
+
+[data-language="ko"] .closing h2 span {
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-style: normal;
+  font-weight: 800;
+}
+
 .closing-bottom {
   display: flex;
   justify-content: space-between;
@@ -749,6 +819,10 @@ footer p:last-child {
 
   .hero h1 {
     font-size: clamp(4.1rem, 13.5vw, 7.5rem);
+  }
+
+  [data-language="ko"] .hero h1 {
+    font-size: clamp(3.8rem, 11.5vw, 6.8rem);
   }
 
   .hero-art {
@@ -821,11 +895,15 @@ footer p:last-child {
   }
 
   .header-cta {
-    font-size: 0;
+    display: none;
   }
 
-  .header-cta span {
-    font-size: 1rem;
+  .header-actions {
+    gap: 0;
+  }
+
+  .language-switch {
+    font-size: 0.56rem;
   }
 
   .hero-copy {
@@ -841,6 +919,12 @@ footer p:last-child {
     padding-block: 74px 54px;
     font-size: clamp(3.75rem, 17vw, 5.4rem);
     line-height: 0.84;
+  }
+
+  [data-language="ko"] .hero h1 {
+    padding-block: 74px 54px;
+    font-size: clamp(3.25rem, 14.4vw, 4.7rem);
+    line-height: 0.94;
   }
 
   .hero h1 span {
@@ -907,6 +991,11 @@ footer p:last-child {
     font-size: 3.55rem;
   }
 
+  [data-language="ko"] .manifesto-title h2 {
+    font-size: 3.2rem;
+    line-height: 1.02;
+  }
+
   .workflow-list article {
     grid-template-columns: 40px 1fr;
   }
@@ -931,6 +1020,11 @@ footer p:last-child {
     margin: 54px 0 78px;
     font-size: clamp(4.4rem, 20vw, 6.7rem);
     line-height: 0.8;
+  }
+
+  [data-language="ko"] .closing h2 {
+    font-size: clamp(3.8rem, 16.7vw, 5.6rem);
+    line-height: 0.92;
   }
 
   .closing-bottom {
