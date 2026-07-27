@@ -1592,19 +1592,7 @@ footer p:last-child {
 }
 
 .storefront-panel > div:first-child {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 28px;
   padding: 22px 0 18px;
-}
-
-.storefront-panel > div:first-child > p:last-child {
-  max-width: 260px;
-  margin: 0;
-  color: rgba(16, 17, 15, 0.65);
-  font-size: 0.74rem;
-  line-height: 1.5;
 }
 
 .storefront-links {
@@ -2408,12 +2396,6 @@ footer p:last-child {
 
   .storefront-panel {
     margin-top: 20px;
-  }
-
-  .storefront-panel > div:first-child {
-    align-items: start;
-    flex-direction: column;
-    gap: 12px;
   }
 
   .storefront-links {

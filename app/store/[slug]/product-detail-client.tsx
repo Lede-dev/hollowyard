@@ -2,7 +2,6 @@
 
 import {
   categoryLabels,
-  MAX_PURCHASE_LINKS,
   products,
   storefronts,
   type Product,
@@ -23,8 +22,6 @@ const detailCopy = {
     back: "스토어로 돌아가기",
     release: "업데이트",
     availableAt: "판매 스토어",
-    storeIntro:
-      "원하는 판매 채널을 선택하면 새 창에서 등록된 링크로 이동합니다.",
     storeLink: "스토어 열기",
     linkNotice:
       "에셋 하나에 최대 6개의 독립적인 구매 링크를 연결할 수 있습니다. 현재 예시 상품은 플랫폼 공식 페이지로 연결됩니다.",
@@ -47,7 +44,6 @@ const detailCopy = {
     back: "Back to store",
     release: "Updated",
     availableAt: "Available at",
-    storeIntro: "Choose a channel to open its registered link in a new tab.",
     storeLink: "Open store",
     linkNotice:
       "Each asset supports up to six independent purchase links. Current sample products open the marketplace homepages.",
@@ -139,13 +135,6 @@ export default function ProductDetailClient({
           <div className="storefront-panel">
             <div>
               <p className="section-kicker">{copy.availableAt}</p>
-              <p>
-                {copy.storeIntro}{" "}
-                <b>
-                  {String(product.purchaseLinks.length).padStart(2, "0")} /{" "}
-                  {String(MAX_PURCHASE_LINKS).padStart(2, "0")}
-                </b>
-              </p>
             </div>
             <div className="storefront-links">
               {product.purchaseLinks.map((purchaseLink, index) => {
