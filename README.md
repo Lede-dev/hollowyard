@@ -1,8 +1,7 @@
-# vinext-starter
+# Hollowyard
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+The Hollowyard game asset catalog and storefront, built with
+[vinext](https://github.com/cloudflare/vinext) for Cloudflare Workers.
 
 ## Prerequisites
 
@@ -16,7 +15,20 @@ npm run dev
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+The production build generates the Wrangler deployment configuration and
+packages the Worker together with its static assets.
+
+## Cloudflare deployment
+
+GitHub Actions validates every pull request and deploys `main` to Cloudflare
+Workers. Add these repository secrets before merging deployment changes:
+
+- `CLOUDFLARE_ACCOUNT_ID`: the target Cloudflare account ID
+- `CLOUDFLARE_API_TOKEN`: a scoped token with **Workers Scripts: Edit**
+
+The workflow can also be started manually from the repository's **Actions**
+tab. Production is served from [hollowyard.com](https://hollowyard.com) through
+a Cloudflare Workers Custom Domain.
 
 ## Included Shape
 
