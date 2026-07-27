@@ -1609,6 +1609,7 @@ footer p:last-child {
 
 .storefront-links {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 7px;
 }
 
@@ -1633,6 +1634,22 @@ footer p:last-child {
   color: var(--ink);
 }
 
+.storefront-links a > span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.storefront-links small {
+  color: rgba(243, 240, 232, 0.55);
+  font: inherit;
+  font-size: 0.5rem;
+}
+
+.storefront-links a:hover small {
+  color: rgba(16, 17, 15, 0.55);
+}
+
 .store-link-notice {
   margin: 13px 0 0;
   color: rgba(16, 17, 15, 0.52);
@@ -1641,9 +1658,139 @@ footer p:last-child {
   line-height: 1.5;
 }
 
+.asset-editorial {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.65fr);
+  border-bottom: 1px solid var(--ink);
+}
+
+.asset-body,
+.asset-documents {
+  min-height: 620px;
+  padding: 76px 3.2vw;
+}
+
+.asset-body {
+  border-right: 1px solid var(--ink);
+}
+
+.asset-introduction {
+  max-width: 880px;
+  margin: 70px 0 82px;
+  font-size: clamp(1.6rem, 2.7vw, 3.35rem);
+  font-weight: 650;
+  letter-spacing: -0.04em;
+  line-height: 1.32;
+}
+
+.asset-body-sections {
+  border-top: 1px solid var(--ink);
+}
+
+.asset-body-sections > section {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 24px;
+  padding: 34px 0 38px;
+  border-bottom: 1px solid var(--line);
+}
+
+.asset-body-sections > section > span,
+.document-links > a > span {
+  padding-top: 6px;
+  color: rgba(16, 17, 15, 0.45);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+}
+
+.asset-body-sections h2 {
+  margin: 0 0 22px;
+  font-size: clamp(1.7rem, 2.25vw, 2.7rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.asset-body-sections p {
+  max-width: 760px;
+  margin: 0;
+  color: rgba(16, 17, 15, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.78;
+}
+
+.asset-body-sections p + p {
+  margin-top: 13px;
+}
+
+.asset-documents {
+  background:
+    linear-gradient(145deg, rgba(198, 255, 39, 0.18), transparent 42%),
+    var(--paper);
+}
+
+.asset-documents > p:nth-child(2) {
+  max-width: 390px;
+  margin: 70px 0 32px;
+  color: rgba(16, 17, 15, 0.65);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.document-links {
+  display: grid;
+  gap: 9px;
+}
+
+.document-links a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.document-links a:hover,
+.document-links a:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-3px);
+}
+
+.document-links a:hover > span,
+.document-links a:focus-visible > span {
+  color: rgba(243, 240, 232, 0.55);
+}
+
+.document-links b {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+}
+
+.document-links p {
+  margin: 0;
+  color: rgba(16, 17, 15, 0.58);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.document-links a:hover p,
+.document-links a:focus-visible p {
+  color: rgba(243, 240, 232, 0.68);
+}
+
+.document-links strong {
+  font-size: 1rem;
+}
+
 .detail-information {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 0.75fr;
+  grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid var(--ink);
 }
 
@@ -1961,6 +2108,21 @@ footer p:last-child {
     grid-template-columns: 1fr 1fr;
   }
 
+  .asset-editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .asset-body,
+  .asset-documents {
+    min-height: 0;
+    padding: 68px 4vw;
+  }
+
+  .asset-body {
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
   .detail-information > div {
     min-height: 390px;
   }
@@ -1970,8 +2132,8 @@ footer p:last-child {
   }
 
   .detail-specifications {
-    grid-column: 1 / -1;
-    border-top: 1px solid var(--ink);
+    grid-column: auto;
+    border-top: 0;
   }
 
   .related-card {
@@ -2252,6 +2414,33 @@ footer p:last-child {
     align-items: start;
     flex-direction: column;
     gap: 12px;
+  }
+
+  .storefront-links {
+    grid-template-columns: 1fr;
+  }
+
+  .asset-body,
+  .asset-documents {
+    padding: 58px 18px;
+  }
+
+  .asset-introduction {
+    margin: 48px 0 56px;
+    font-size: 1.65rem;
+  }
+
+  .asset-body-sections > section {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .asset-body-sections h2 {
+    font-size: 1.65rem;
+  }
+
+  .asset-documents > p:nth-child(2) {
+    margin-top: 48px;
   }
 
   .detail-information {

@@ -252,8 +252,8 @@ export default function StoreClient() {
                   <div className="product-card-footer">
                     <span>
                       {copy.stores} /{" "}
-                      {product.stores
-                        .map((store) => storefronts[store].name)
+                      {product.purchaseLinks
+                        .map((link) => storefronts[link.storefront].name)
                         .join(" · ")}
                     </span>
                     <b aria-hidden="true">↗</b>

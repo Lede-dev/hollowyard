@@ -2,6 +2,7 @@
 
 import {
   categoryLabels,
+  MAX_PURCHASE_LINKS,
   products,
   storefronts,
   type Product,
@@ -23,11 +24,14 @@ const detailCopy = {
     release: "업데이트",
     availableAt: "판매 스토어",
     storeIntro:
-      "원하는 마켓을 선택하면 새 창에서 해당 스토어로 이동합니다.",
+      "원하는 판매 페이지를 선택하면 새 창에서 해당 에셋으로 이동합니다.",
     storeLink: "스토어 열기",
     linkNotice:
-      "상품별 판매 URL을 연결하기 전까지 각 플랫폼의 공식 홈으로 이동합니다.",
+      "에셋 하나에 최대 6개의 독립적인 구매 링크를 연결할 수 있습니다.",
     description: "상품 설명",
+    documents: "문서 및 지원",
+    documentsIntro: "설치 가이드와 관련 문서를 새 창에서 확인할 수 있습니다.",
+    documentLink: "문서 열기",
     includes: "상품 구성",
     specifications: "기술 정보",
     related: "함께 살펴볼 에셋",
@@ -43,11 +47,14 @@ const detailCopy = {
     back: "Back to store",
     release: "Updated",
     availableAt: "Available at",
-    storeIntro: "Choose a marketplace to continue in a new tab.",
+    storeIntro: "Choose a purchase page to open this asset in a new tab.",
     storeLink: "Open store",
     linkNotice:
-      "Until product-specific URLs are added, these buttons open each marketplace homepage.",
+      "Each asset supports up to six independent purchase links.",
     description: "About this asset",
+    documents: "Documentation & support",
+    documentsIntro: "Open setup guides and related documentation in a new tab.",
+    documentLink: "Open document",
     includes: "What's included",
     specifications: "Technical details",
     related: "You may also need",
@@ -132,20 +139,32 @@ export default function ProductDetailClient({
           <div className="storefront-panel">
             <div>
               <p className="section-kicker">{copy.availableAt}</p>
-              <p>{copy.storeIntro}</p>
+              <p>
+                {copy.storeIntro}{" "}
+                <b>
+                  {String(product.purchaseLinks.length).padStart(2, "0")} /{" "}
+                  {String(MAX_PURCHASE_LINKS).padStart(2, "0")}
+                </b>
+              </p>
             </div>
             <div className="storefront-links">
-              {product.stores.map((storeId) => {
-                const store = storefronts[storeId];
+              {product.purchaseLinks.map((purchaseLink, index) => {
+                const store = storefronts[purchaseLink.storefront];
                 return (
                   <a
-                    href={store.url}
+                    href={purchaseLink.url}
                     target="_blank"
                     rel="noreferrer"
-                    key={store.id}
+                    key={`${store.id}-${purchaseLink.url}`}
                     aria-label={`${store.name} — ${copy.storeLink}`}
                   >
-                    <span>{store.name}</span>
+                    <span>
+                      <small>
+                        {String(index + 1).padStart(2, "0")} /{" "}
+                        {String(product.purchaseLinks.length).padStart(2, "0")}
+                      </small>
+                      {store.name}
+                    </span>
                     <b aria-hidden="true">↗</b>
                   </a>
                 );
@@ -156,14 +175,53 @@ export default function ProductDetailClient({
         </div>
       </section>
 
-      <section className="detail-information">
-        <div className="detail-description">
+      <section className="asset-editorial">
+        <article className="asset-body">
           <p className="section-kicker">01 / {copy.description}</p>
-          <p>{product.description[language]}</p>
-        </div>
+          <p className="asset-introduction">{product.description[language]}</p>
 
+          <div className="asset-body-sections">
+            {product.body.map((section, index) => (
+              <section key={section.heading.en}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h2>{section.heading[language]}</h2>
+                  {section.paragraphs[language].map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        </article>
+
+        <aside className="asset-documents">
+          <p className="section-kicker">02 / {copy.documents}</p>
+          <p>{copy.documentsIntro}</p>
+          <div className="document-links">
+            {product.documents.map((document, index) => (
+              <a
+                href={document.url}
+                target="_blank"
+                rel="noreferrer"
+                key={document.url}
+                aria-label={`${document.label[language]} — ${copy.documentLink}`}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <b>{document.label[language]}</b>
+                  <p>{document.description[language]}</p>
+                </div>
+                <strong aria-hidden="true">↗</strong>
+              </a>
+            ))}
+          </div>
+        </aside>
+      </section>
+
+      <section className="detail-information">
         <div className="detail-includes">
-          <p className="section-kicker">02 / {copy.includes}</p>
+          <p className="section-kicker">03 / {copy.includes}</p>
           <ol>
             {product.includes[language].map((item, index) => (
               <li key={item}>
@@ -175,7 +233,7 @@ export default function ProductDetailClient({
         </div>
 
         <div className="detail-specifications">
-          <p className="section-kicker">03 / {copy.specifications}</p>
+          <p className="section-kicker">04 / {copy.specifications}</p>
           <dl>
             {product.specifications.map((item) => (
               <div key={item.label.en}>
@@ -189,7 +247,7 @@ export default function ProductDetailClient({
 
       <section className="related-products">
         <div className="related-heading">
-          <p className="section-kicker">04 / NEXT</p>
+          <p className="section-kicker">05 / NEXT</p>
           <h2>{copy.related}</h2>
         </div>
         <div className="related-grid">
