@@ -12,7 +12,7 @@ const content = {
       catalog: "카탈로그",
       about: "브랜드",
       license: "라이선스",
-      contact: "문의",
+      store: "스토어",
     },
     eyebrow: ["게임을 위한 에셋. 세계를 위한 재료.", "서울 · 전 세계"],
     hero: ["아직 없는 세계를 위한", "준비된 에셋."],
@@ -34,6 +34,7 @@ const content = {
         description: "도시, 자연, 실내 공간을 빠르게 완성하는 모듈형 월드 에셋",
         tags: ["3D", "모듈형"],
         tone: "acid",
+        category: "environment",
       },
       {
         id: "A—02",
@@ -41,6 +42,7 @@ const content = {
         description: "게임의 분위기를 선명하게 만드는 캐릭터와 크리처 컬렉션",
         tags: ["리깅", "게임 레디"],
         tone: "coral",
+        category: "characters",
       },
       {
         id: "A—03",
@@ -48,6 +50,7 @@ const content = {
         description: "HUD부터 아이콘까지, 플레이 경험을 정돈하는 UI 시스템",
         tags: ["UI 키트", "원본 포함"],
         tone: "blue",
+        category: "interface",
       },
     ],
     manifesto: {
@@ -79,12 +82,13 @@ const content = {
       link: "라이선스 살펴보기",
     },
     closing: {
-      kicker: "곧, 야드가 열립니다",
-      lines: ["다음 세계를", "여기서 시작하세요."],
+      kicker: "모든 판매처를 한곳에서",
+      lines: ["원하는 에셋을 찾고,", "익숙한 곳에서 구매하세요."],
       description: [
-        "첫 컬렉션 공개와 새로운 드롭 소식을 가장 먼저 받아보세요.",
-        "창작자 협업과 입점 문의도 열려 있습니다.",
+        "상품 정보와 구성은 할로우야드에서 비교하고,",
+        "구매는 원하는 외부 마켓에서 이어집니다.",
       ],
+      cta: "스토어 열기",
     },
     footerTagline: "아직 없는 세계를 위한, 준비된 에셋.",
     topAria: "맨 위로",
@@ -96,7 +100,7 @@ const content = {
       catalog: "Catalog",
       about: "About",
       license: "License",
-      contact: "Contact",
+      store: "Store",
     },
     eyebrow: ["Assets for games. Materials for worlds.", "Seoul · Worldwide"],
     hero: ["READY FOR WORLDS.", "YET TO EXIST."],
@@ -119,6 +123,7 @@ const content = {
           "Modular world assets for building cities, nature, and interiors faster.",
         tags: ["3D", "MODULAR"],
         tone: "acid",
+        category: "environment",
       },
       {
         id: "A—02",
@@ -127,6 +132,7 @@ const content = {
           "Characters and creature collections designed to sharpen the mood of your game.",
         tags: ["RIGGED", "GAME-READY"],
         tone: "coral",
+        category: "characters",
       },
       {
         id: "A—03",
@@ -135,6 +141,7 @@ const content = {
           "UI systems that bring order to the player experience, from HUDs to icons.",
         tags: ["UI KIT", "SOURCE"],
         tone: "blue",
+        category: "interface",
       },
     ],
     manifesto: {
@@ -166,12 +173,13 @@ const content = {
       link: "Explore the license",
     },
     closing: {
-      kicker: "The yard is opening soon",
-      lines: ["Start your next world", "right here."],
+      kicker: "Every marketplace. One hub.",
+      lines: ["Find the right asset,", "buy where you prefer."],
       description: [
-        "Be first to hear about our debut collection and every new drop.",
-        "Creator collaborations and marketplace inquiries are always welcome.",
+        "Compare every product and package here,",
+        "then continue to the marketplace you already use.",
       ],
+      cta: "Open the store",
     },
     footerTagline: "GAME ASSETS FOR WORLDS YET TO EXIST.",
     topAria: "Back to top",
@@ -237,8 +245,8 @@ export default function Home() {
               EN
             </button>
           </div>
-          <a className="header-cta" href="#contact">
-            {copy.nav.contact} <ArrowIcon />
+          <a className="header-cta" href="/store">
+            {copy.nav.store} <ArrowIcon />
           </a>
         </div>
       </header>
@@ -258,7 +266,7 @@ export default function Home() {
           <div className="hero-bottom">
             <p className="hero-description">{copy.heroDescription}</p>
 
-            <a className="primary-button" href="#catalog">
+            <a className="primary-button" href="/store">
               {copy.explore} <ArrowIcon />
             </a>
           </div>
@@ -310,8 +318,9 @@ export default function Home() {
 
         <div className="collection-grid">
           {copy.collections.map((collection) => (
-            <article
+            <a
               className={`collection-card ${collection.tone}`}
+              href={`/store?category=${collection.category}`}
               key={collection.id}
             >
               <div className="card-meta">
@@ -332,7 +341,7 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -377,13 +386,13 @@ export default function Home() {
           <p className="section-kicker">{copy.license.kicker}</p>
           <h2>{copy.license.title}</h2>
           <p>{copy.license.description}</p>
-          <a href="#contact">
+          <a href="/store">
             {copy.license.link} <ArrowIcon />
           </a>
         </div>
       </section>
 
-      <section className="closing section-shell" id="contact">
+      <section className="closing section-shell" id="store-hub">
         <p className="section-kicker">{copy.closing.kicker}</p>
         <h2>
           {copy.closing.lines[0]}
@@ -396,11 +405,8 @@ export default function Home() {
             <br />
             {copy.closing.description[1]}
           </p>
-          <a
-            className="primary-button light"
-            href="mailto:hello@hollowyard.com"
-          >
-            hello@hollowyard.com <ArrowIcon />
+          <a className="primary-button light" href="/store">
+            {copy.closing.cta} <ArrowIcon />
           </a>
         </div>
       </section>
