@@ -277,7 +277,7 @@ export default function Home() {
           <span>HOLLOWYARD</span>
         </a>
         <p>{copy.footerTagline}</p>
-        <p>© 2026 HOLLOWYARD</p>
+        <p>© 2026 Lede Studios</p>
       </footer>
     </main>
   );

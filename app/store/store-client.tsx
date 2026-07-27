@@ -277,7 +277,7 @@ export default function StoreClient() {
       <footer className="store-footer">
         <StoreBrand label={copy.brandAria} />
         <p>{copy.footer}</p>
-        <p>© 2026 HOLLOWYARD</p>
+        <p>© 2026 Lede Studios</p>
       </footer>
     </main>
   );
