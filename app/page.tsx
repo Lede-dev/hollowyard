@@ -14,18 +14,18 @@ const content = {
       license: "라이선스",
       contact: "문의",
     },
-    eyebrow: ["독립 게임 에셋 레이블", "서울 · 전 세계"],
-    hero: ["세계를 만들고.", "분위기를 완성하다."],
+    eyebrow: ["게임을 위한 에셋. 세계를 위한 재료.", "서울 · 전 세계"],
+    hero: ["아직 없는 세계를 위한", "준비된 에셋."],
     heroDescription:
-      "할로우야드는 게임의 분위기를 완성하는 에셋과 콘텐츠를 만듭니다. 더 빠르게 시작하고, 더 당신다운 세계를 구축하세요.",
-    explore: "카탈로그 보기",
+      "상상은 빠르게, 제작은 단단하게. 할로우야드는 세계관의 밀도를 높이는 게임 에셋과 콘텐츠를 만듭니다.",
+    explore: "에셋 둘러보기",
     artAria: "할로우야드 에셋 컬렉션 미리보기",
     marqueeAria: "할로우야드 제공 콘텐츠",
     catalog: {
       kicker: "01 / 카탈로그",
-      title: "당신의 세계에 부족한 한 조각.",
+      title: "세계의 빈칸을 채우는 재료.",
       description:
-        "단순히 공간을 채우는 에셋이 아닌, 게임의 인상을 결정하는 재료를 소개합니다.",
+        "배경을 만들고, 캐릭터에 생기를 더하고, 플레이 경험을 정돈하는 에셋을 선별합니다.",
     },
     collections: [
       {
@@ -52,41 +52,41 @@ const content = {
     ],
     manifesto: {
       kicker: "02 / 할로우야드의 기준",
-      lines: ["좋은 에셋은", "새로운 문을 열고,", "세계를 넓혀야 합니다."],
+      lines: ["좋은 에셋은", "완성된 답이 아니라,", "더 큰 가능성입니다."],
     },
     workflow: [
       {
         number: "01",
-        title: "엄선된 에셋",
-        text: "쓰임이 분명하고 완성도 높은 에셋만 선별합니다.",
+        title: "덜어내고, 골라내다",
+        text: "많이보다 정확하게. 쓰임과 완성도가 분명한 에셋만 선별합니다.",
       },
       {
         number: "02",
-        title: "프로덕션 레디",
-        text: "실제 제작 환경에 바로 연결할 수 있도록 정리합니다.",
+        title: "바로 만들 수 있게",
+        text: "열고, 연결하고, 이어서 만들 수 있도록 실제 제작 흐름에 맞춰 정리합니다.",
       },
       {
         number: "03",
-        title: "당신의 것이 되도록",
-        text: "프로젝트의 개성을 해치지 않는 유연한 활용을 지향합니다.",
+        title: "당신의 세계로",
+        text: "에셋의 흔적보다 창작자의 개성이 남도록 유연하게 설계합니다.",
       },
     ],
     license: {
       kicker: "03 / 명확한 설계",
-      title: "간결한 라이선스. 진지한 작업.",
+      title: "쉽게 이해하고, 자유롭게 만들기.",
       description:
-        "개인 프로젝트부터 상업 게임까지. 에셋을 고르는 순간보다 만드는 시간에 더 집중할 수 있도록 명확한 라이선스를 지향합니다.",
-      link: "라이선스 안내 받기",
+        "개인 작업부터 상업 게임까지. 복잡한 해석 대신 만드는 일에 집중할 수 있도록 사용 범위를 명확하게 안내합니다.",
+      link: "라이선스 살펴보기",
     },
     closing: {
       kicker: "곧, 야드가 열립니다",
-      lines: ["당신의 다음 세계는", "여기서 시작됩니다."],
+      lines: ["다음 세계를", "여기서 시작하세요."],
       description: [
-        "첫 번째 컬렉션과 출시 소식을 가장 먼저 받아보세요.",
-        "협업 및 입점 문의도 환영합니다.",
+        "첫 컬렉션 공개와 새로운 드롭 소식을 가장 먼저 받아보세요.",
+        "창작자 협업과 입점 문의도 열려 있습니다.",
       ],
     },
-    footerTagline: "아직 존재하지 않는 세계를 위한 게임 에셋.",
+    footerTagline: "아직 없는 세계를 위한, 준비된 에셋.",
     topAria: "맨 위로",
   },
   en: {
@@ -98,18 +98,18 @@ const content = {
       license: "License",
       contact: "Contact",
     },
-    eyebrow: ["Independent game asset label", "Seoul · Worldwide"],
-    hero: ["BUILD THE WORLD.", "OWN THE MOOD."],
+    eyebrow: ["Assets for games. Materials for worlds.", "Seoul · Worldwide"],
+    hero: ["READY FOR WORLDS.", "YET TO EXIST."],
     heroDescription:
-      "Hollowyard creates game assets and content that define the mood. Start faster, then shape a world that feels unmistakably yours.",
-    explore: "Explore the yard",
+      "Imagine faster. Build with confidence. Hollowyard makes game assets and content that give your world more depth.",
+    explore: "Explore the assets",
     artAria: "Preview of the Hollowyard asset collection",
     marqueeAria: "Content available from Hollowyard",
     catalog: {
       kicker: "01 / The catalog",
-      title: "Find what your world is missing.",
+      title: "The missing pieces of your world.",
       description:
-        "Not filler, but the building blocks that give your game its lasting impression.",
+        "Curated assets for building places, bringing characters to life, and shaping a coherent play experience.",
     },
     collections: [
       {
@@ -139,38 +139,38 @@ const content = {
     ],
     manifesto: {
       kicker: "02 / Why Hollowyard",
-      lines: ["A good asset", "should open a door,", "not close a world."],
+      lines: ["A good asset", "isn't the final answer—", "it's more possibility."],
     },
     workflow: [
       {
         number: "01",
-        title: "Curated, not crowded",
-        text: "We select only purposeful, production-quality assets.",
+        title: "Less, but better",
+        text: "We choose for purpose and finish—not for the size of the catalog.",
       },
       {
         number: "02",
-        title: "Ready for production",
-        text: "Everything is organized to slot into real production workflows.",
+        title: "Ready when you are",
+        text: "Everything is organized to open, connect, and continue building.",
       },
       {
         number: "03",
-        title: "Made to be yours",
-        text: "Flexible by design, so your project keeps its own identity.",
+        title: "Built for your world",
+        text: "Flexible by design, so your creative voice stays in the foreground.",
       },
     ],
     license: {
       kicker: "03 / Clear by design",
-      title: "Simple license. Serious work.",
+      title: "Clear terms. More room to create.",
       description:
-        "From personal projects to commercial games, our licensing is designed to keep your focus on making—not decoding fine print.",
-      link: "Read the license guide",
+        "From personal work to commercial games, every use case is explained clearly so you can stay focused on making.",
+      link: "Explore the license",
     },
     closing: {
       kicker: "The yard is opening soon",
-      lines: ["Your next world", "starts here."],
+      lines: ["Start your next world", "right here."],
       description: [
-        "Be first to hear about our debut collection and upcoming releases.",
-        "We also welcome collaboration and creator inquiries.",
+        "Be first to hear about our debut collection and every new drop.",
+        "Creator collaborations and marketplace inquiries are always welcome.",
       ],
     },
     footerTagline: "GAME ASSETS FOR WORLDS YET TO EXIST.",
@@ -251,9 +251,8 @@ export default function Home() {
           </p>
 
           <h1>
-            {copy.hero[0]}
-            <br />
-            <span>{copy.hero[1]}</span>
+            <span className="hero-line hero-line-primary">{copy.hero[0]}</span>
+            <span className="hero-line hero-line-accent">{copy.hero[1]}</span>
           </h1>
 
           <div className="hero-bottom">
