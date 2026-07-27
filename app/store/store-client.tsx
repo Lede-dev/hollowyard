@@ -41,6 +41,7 @@ const storeCopy = {
     emptyTitle: "검색 결과가 없습니다.",
     emptyDescription: "검색어를 바꾸거나 다른 카테고리를 선택해 보세요.",
     reset: "필터 초기화",
+    newsLink: "공지와 이벤트 보기",
     footer: "여러 마켓에 흩어진 할로우야드 에셋을 한곳에서.",
   },
   en: {
@@ -67,6 +68,7 @@ const storeCopy = {
     emptyTitle: "No products found.",
     emptyDescription: "Try another term or choose a different category.",
     reset: "Reset filters",
+    newsLink: "View news & events",
     footer: "Every Hollowyard asset. Every marketplace. One index.",
   },
 } as const;
@@ -154,6 +156,9 @@ export default function StoreClient() {
         </div>
         <div className="store-hero-aside">
           <p>{copy.intro}</p>
+          <a className="store-news-link" href="/news">
+            {copy.newsLink} <span aria-hidden="true">↗</span>
+          </a>
           <div>
             <strong>{String(products.length).padStart(2, "0")}</strong>
             <span>{copy.countLabel}</span>

@@ -53,6 +53,29 @@ test("server-renders product editorial, documents, and purchase links", async ()
   assert.match(html, /class="storefront-links"/);
 });
 
+test("server-renders the news index and event detail", async () => {
+  const [indexResponse, detailResponse] = await Promise.all([
+    render("/news"),
+    render("/news/worldbuilding-showcase-2026"),
+  ]);
+
+  assert.equal(indexResponse.status, 200);
+  assert.equal(detailResponse.status, 200);
+
+  const [indexHtml, detailHtml] = await Promise.all([
+    indexResponse.text(),
+    detailResponse.text(),
+  ]);
+
+  assert.match(indexHtml, /HOLLOWYARD \/ NEWSROOM/);
+  assert.match(indexHtml, /Hollowyard 스토어 베타 오픈/);
+  assert.match(indexHtml, /Worldbuilding Showcase 2026/);
+  assert.match(indexHtml, /class="news-grid"/);
+  assert.match(detailHtml, /class="news-detail-hero news-tone-coral"/);
+  assert.match(detailHtml, /이벤트 기간/);
+  assert.match(detailHtml, /완성 결과와 제작 과정을 함께/);
+});
+
 test("keeps asset registration templates and purchase-link validation", async () => {
   const [products, workflow, productTemplate, guideTemplate] = await Promise.all([
     readFile(new URL("../lib/products.ts", import.meta.url), "utf8"),
@@ -77,4 +100,25 @@ test("keeps asset registration templates and purchase-link validation", async ()
   assert.match(productTemplate, /body:/);
   assert.match(productTemplate, /documents:/);
   assert.match(guideTemplate, /## 설치/);
+});
+
+test("keeps the news publishing workflow and data template", async () => {
+  const [posts, workflow, template] = await Promise.all([
+    readFile(new URL("../lib/posts.ts", import.meta.url), "utf8"),
+    readFile(
+      new URL("../docs/news-publishing-workflow.md", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../docs/templates/news-entry.template.md", import.meta.url),
+      "utf8",
+    ),
+  ]);
+
+  assert.match(posts, /export type PostType = "notice" \| "event"/);
+  assert.match(posts, /export const newsPosts/);
+  assert.match(workflow, /공지·이벤트 게시 워크플로/);
+  assert.match(template, /eventPeriod/);
+  assert.match(template, /featured:/);
+  assert.match(template, /body:/);
 });
