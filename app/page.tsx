@@ -9,9 +9,7 @@ const content = {
     brandAria: "할로우야드 홈",
     navAria: "주요 메뉴",
     nav: {
-      catalog: "카탈로그",
-      about: "브랜드",
-      license: "라이선스",
+      home: "홈",
       store: "스토어",
     },
     eyebrow: ["게임을 위한 에셋. 세계를 위한 재료.", "서울 · 전 세계"],
@@ -53,43 +51,6 @@ const content = {
         category: "interface",
       },
     ],
-    manifesto: {
-      kicker: "02 / 할로우야드의 기준",
-      lines: ["좋은 에셋은", "완성된 답이 아니라,", "더 큰 가능성입니다."],
-    },
-    workflow: [
-      {
-        number: "01",
-        title: "덜어내고, 골라내다",
-        text: "많이보다 정확하게. 쓰임과 완성도가 분명한 에셋만 선별합니다.",
-      },
-      {
-        number: "02",
-        title: "바로 만들 수 있게",
-        text: "열고, 연결하고, 이어서 만들 수 있도록 실제 제작 흐름에 맞춰 정리합니다.",
-      },
-      {
-        number: "03",
-        title: "당신의 세계로",
-        text: "에셋의 흔적보다 창작자의 개성이 남도록 유연하게 설계합니다.",
-      },
-    ],
-    license: {
-      kicker: "03 / 명확한 설계",
-      title: "쉽게 이해하고, 자유롭게 만들기.",
-      description:
-        "개인 작업부터 상업 게임까지. 복잡한 해석 대신 만드는 일에 집중할 수 있도록 사용 범위를 명확하게 안내합니다.",
-      link: "라이선스 살펴보기",
-    },
-    closing: {
-      kicker: "모든 판매처를 한곳에서",
-      lines: ["원하는 에셋을 찾고,", "익숙한 곳에서 구매하세요."],
-      description: [
-        "상품 정보와 구성은 할로우야드에서 비교하고,",
-        "구매는 원하는 외부 마켓에서 이어집니다.",
-      ],
-      cta: "스토어 열기",
-    },
     footerTagline: "아직 없는 세계를 위한, 준비된 에셋.",
     topAria: "맨 위로",
   },
@@ -97,9 +58,7 @@ const content = {
     brandAria: "Hollowyard home",
     navAria: "Main navigation",
     nav: {
-      catalog: "Catalog",
-      about: "About",
-      license: "License",
+      home: "Home",
       store: "Store",
     },
     eyebrow: ["Assets for games. Materials for worlds.", "Seoul · Worldwide"],
@@ -144,43 +103,6 @@ const content = {
         category: "interface",
       },
     ],
-    manifesto: {
-      kicker: "02 / Why Hollowyard",
-      lines: ["A good asset", "isn't the final answer—", "it's more possibility."],
-    },
-    workflow: [
-      {
-        number: "01",
-        title: "Less, but better",
-        text: "We choose for purpose and finish—not for the size of the catalog.",
-      },
-      {
-        number: "02",
-        title: "Ready when you are",
-        text: "Everything is organized to open, connect, and continue building.",
-      },
-      {
-        number: "03",
-        title: "Built for your world",
-        text: "Flexible by design, so your creative voice stays in the foreground.",
-      },
-    ],
-    license: {
-      kicker: "03 / Clear by design",
-      title: "Clear terms. More room to create.",
-      description:
-        "From personal work to commercial games, every use case is explained clearly so you can stay focused on making.",
-      link: "Explore the license",
-    },
-    closing: {
-      kicker: "Every marketplace. One hub.",
-      lines: ["Find the right asset,", "buy where you prefer."],
-      description: [
-        "Compare every product and package here,",
-        "then continue to the marketplace you already use.",
-      ],
-      cta: "Open the store",
-    },
     footerTagline: "GAME ASSETS FOR WORLDS YET TO EXIST.",
     topAria: "Back to top",
   },
@@ -222,13 +144,14 @@ export default function Home() {
         </a>
 
         <nav className="main-nav" aria-label={copy.navAria}>
-          <a href="#catalog">{copy.nav.catalog}</a>
-          <a href="#principles">{copy.nav.about}</a>
-          <a href="#license">{copy.nav.license}</a>
+          <a href="#top" aria-current="page">
+            {copy.nav.home}
+          </a>
+          <a href="/store">{copy.nav.store}</a>
         </nav>
 
         <div className="header-actions">
-          <div className="language-switch" aria-label="언어 선택 / Language">
+          <div className="language-switch" aria-label="언어 선택 · Language">
             <button
               type="button"
               aria-pressed={language === "ko"}
@@ -236,7 +159,7 @@ export default function Home() {
             >
               KO
             </button>
-            <span aria-hidden="true">/</span>
+            <span aria-hidden="true">·</span>
             <button
               type="button"
               aria-pressed={language === "en"}
@@ -245,9 +168,6 @@ export default function Home() {
               EN
             </button>
           </div>
-          <a className="header-cta" href="/store">
-            {copy.nav.store} <ArrowIcon />
-          </a>
         </div>
       </header>
 
@@ -343,71 +263,6 @@ export default function Home() {
               </div>
             </a>
           ))}
-        </div>
-      </section>
-
-      <section className="manifesto section-shell" id="principles">
-        <div className="manifesto-title">
-          <p className="section-kicker">{copy.manifesto.kicker}</p>
-          <h2>
-            {copy.manifesto.lines[0]}
-            <br />
-            {copy.manifesto.lines[1]}
-            <br />
-            <em>{copy.manifesto.lines[2]}</em>
-          </h2>
-        </div>
-
-        <div className="workflow-list">
-          {copy.workflow.map((item) => (
-            <article key={item.number}>
-              <span>{item.number}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="license section-shell" id="license">
-        <div className="license-visual">
-          <span className="license-code">LICENSE / HY—STD</span>
-          <div className="stamp">
-            <span>USE</span>
-            <strong>BUILD</strong>
-            <span>SHIP</span>
-          </div>
-          <span className="license-note">NO HIDDEN MAZE</span>
-        </div>
-
-        <div className="license-copy">
-          <p className="section-kicker">{copy.license.kicker}</p>
-          <h2>{copy.license.title}</h2>
-          <p>{copy.license.description}</p>
-          <a href="/store">
-            {copy.license.link} <ArrowIcon />
-          </a>
-        </div>
-      </section>
-
-      <section className="closing section-shell" id="store-hub">
-        <p className="section-kicker">{copy.closing.kicker}</p>
-        <h2>
-          {copy.closing.lines[0]}
-          <br />
-          <span>{copy.closing.lines[1]}</span>
-        </h2>
-        <div className="closing-bottom">
-          <p>
-            {copy.closing.description[0]}
-            <br />
-            {copy.closing.description[1]}
-          </p>
-          <a className="primary-button light" href="/store">
-            {copy.closing.cta} <ArrowIcon />
-          </a>
         </div>
       </section>
 

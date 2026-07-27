@@ -81,7 +81,6 @@ export default function ProductDetailClient({
           <a href="/store" aria-current="page">
             {copy.store}
           </a>
-          <a href="/#license">{copy.license}</a>
         </nav>
         <div className="header-actions">
           <StoreLanguageSwitch
@@ -231,4 +230,3 @@ export default function ProductDetailClient({
     </main>
   );
 }
-

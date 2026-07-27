@@ -31,7 +31,7 @@ export function StoreLanguageSwitch({
   onSelect: (language: Language) => void;
 }) {
   return (
-    <div className="language-switch" aria-label="언어 선택 / Language">
+    <div className="language-switch" aria-label="언어 선택 · Language">
       <button
         type="button"
         aria-pressed={language === "ko"}
@@ -39,7 +39,7 @@ export function StoreLanguageSwitch({
       >
         KO
       </button>
-      <span aria-hidden="true">/</span>
+      <span aria-hidden="true">·</span>
       <button
         type="button"
         aria-pressed={language === "en"}
@@ -64,4 +64,3 @@ export function StoreBrand({ label }: { label: string }) {
     </a>
   );
 }
-
