@@ -18,6 +18,7 @@ const detailCopy = {
     navAria: "소식 상세 메뉴",
     home: "홈",
     store: "스토어",
+    news: "공지",
     published: "게시일",
     period: "이벤트 기간",
     article: "본문",
@@ -33,6 +34,7 @@ const detailCopy = {
     navAria: "News detail navigation",
     home: "Home",
     store: "Store",
+    news: "News",
     published: "Published",
     period: "Event period",
     article: "Article",
@@ -76,6 +78,9 @@ export default function NewsDetailClient({ post }: { post: NewsPost }) {
         <nav className="main-nav" aria-label={copy.navAria}>
           <a href="/">{copy.home}</a>
           <a href="/store">{copy.store}</a>
+          <a href="/news" aria-current="page">
+            {copy.news}
+          </a>
         </nav>
         <div className="header-actions">
           <StoreLanguageSwitch

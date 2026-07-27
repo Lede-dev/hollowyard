@@ -18,6 +18,7 @@ const detailCopy = {
     navAria: "상품 메뉴",
     home: "홈",
     store: "스토어",
+    news: "공지",
     license: "라이선스",
     back: "스토어로 돌아가기",
     release: "업데이트",
@@ -40,6 +41,7 @@ const detailCopy = {
     navAria: "Product navigation",
     home: "Home",
     store: "Store",
+    news: "News",
     license: "License",
     back: "Back to store",
     release: "Updated",
@@ -84,6 +86,7 @@ export default function ProductDetailClient({
           <a href="/store" aria-current="page">
             {copy.store}
           </a>
+          <a href="/news">{copy.news}</a>
         </nav>
         <div className="header-actions">
           <StoreLanguageSwitch

@@ -15,6 +15,7 @@ const content = {
     nav: {
       home: "홈",
       store: "스토어",
+      news: "공지",
     },
     eyebrow: ["게임을 위한 에셋. 세계를 위한 재료.", "서울 · 전 세계"],
     hero: ["아직 없는 세계를 위한", "준비된 에셋."],
@@ -64,6 +65,7 @@ const content = {
     nav: {
       home: "Home",
       store: "Store",
+      news: "News",
     },
     eyebrow: ["Assets for games. Materials for worlds.", "Seoul · Worldwide"],
     hero: ["READY FOR WORLDS.", "YET TO EXIST."],
@@ -240,6 +242,7 @@ export default function Home() {
             {copy.nav.home}
           </a>
           <a href="/store">{copy.nav.store}</a>
+          <a href="/news">{copy.nav.news}</a>
         </nav>
 
         <div className="header-actions">

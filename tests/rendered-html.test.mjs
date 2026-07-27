@@ -35,6 +35,7 @@ test("server-renders the Hollowyard homepage", async () => {
   );
   assert.match(html, /아직 없는 세계를 위한/);
   assert.match(html, /class="marquee-track"/);
+  assert.match(html, /href="\/news">공지<\/a>/);
   assert.match(html, /© 2026 Lede Studios/);
   assert.doesNotMatch(html, /codex-preview|Building your site/);
 });
@@ -71,6 +72,7 @@ test("server-renders the news index and event detail", async () => {
   assert.match(indexHtml, /Hollowyard 스토어 베타 오픈/);
   assert.match(indexHtml, /Worldbuilding Showcase 2026/);
   assert.match(indexHtml, /class="news-grid"/);
+  assert.match(indexHtml, /href="\/news" aria-current="page">공지<\/a>/);
   assert.match(detailHtml, /class="news-detail-hero news-tone-coral"/);
   assert.match(detailHtml, /이벤트 기간/);
   assert.match(detailHtml, /완성 결과와 제작 과정을 함께/);

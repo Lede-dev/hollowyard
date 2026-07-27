@@ -22,6 +22,7 @@ const newsCopy = {
     navAria: "소식 페이지 메뉴",
     home: "홈",
     store: "스토어",
+    news: "공지",
     kicker: "HOLLOWYARD / NEWSROOM",
     title: "새로운 소식과,\n진행 중인 이벤트.",
     intro:
@@ -48,6 +49,7 @@ const newsCopy = {
     navAria: "News navigation",
     home: "Home",
     store: "Store",
+    news: "News",
     kicker: "HOLLOWYARD / NEWSROOM",
     title: "LATEST NOTES.\nCURRENT EVENTS.",
     intro:
@@ -132,6 +134,9 @@ export default function NewsClient() {
         <nav className="main-nav" aria-label={copy.navAria}>
           <a href="/">{copy.home}</a>
           <a href="/store">{copy.store}</a>
+          <a href="/news" aria-current="page">
+            {copy.news}
+          </a>
         </nav>
         <div className="header-actions">
           <StoreLanguageSwitch

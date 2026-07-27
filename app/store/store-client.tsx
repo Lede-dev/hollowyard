@@ -22,6 +22,7 @@ const storeCopy = {
     navAria: "스토어 메뉴",
     home: "홈",
     store: "스토어",
+    news: "공지",
     license: "라이선스",
     kicker: "HOLLOWYARD / ASSET INDEX",
     title: "필요한 에셋을 찾고,\n원하는 스토어에서 구매하세요.",
@@ -49,6 +50,7 @@ const storeCopy = {
     navAria: "Store navigation",
     home: "Home",
     store: "Store",
+    news: "News",
     license: "License",
     kicker: "HOLLOWYARD / ASSET INDEX",
     title: "FIND THE ASSET.\nCHOOSE YOUR STORE.",
@@ -136,6 +138,7 @@ export default function StoreClient() {
           <a href="/store" aria-current="page">
             {copy.store}
           </a>
+          <a href="/news">{copy.news}</a>
         </nav>
         <div className="header-actions">
           <StoreLanguageSwitch
