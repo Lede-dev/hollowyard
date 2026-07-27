@@ -799,13 +799,13 @@ footer {
   align-items: center;
   padding: 30px 2.3vw;
   border-top: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 footer .brand-mark i:nth-child(2),
 footer .brand-mark i:nth-child(3) {
-  border-color: var(--paper);
+  border-color: var(--ink);
 }
 
 footer p {
@@ -1232,13 +1232,13 @@ footer p:last-child {
 }
 
 .store-footer {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .store-footer .brand-mark i:nth-child(2),
 .store-footer .brand-mark i:nth-child(3) {
-  border-color: var(--paper);
+  border-color: var(--ink);
 }
 
 .detail-breadcrumb {
