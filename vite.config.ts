@@ -16,8 +16,8 @@ const localBindingConfig = {
   compatibility_flags: ["nodejs_compat"],
   routes: [
     {
-      pattern: "hollowyard.com",
-      custom_domain: true,
+      pattern: "hollowyard.com/*",
+      zone_name: "hollowyard.com",
     },
   ],
   d1_databases: d1

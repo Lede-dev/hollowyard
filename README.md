@@ -28,7 +28,7 @@ Workers. Add these repository secrets before merging deployment changes:
 
 The workflow can also be started manually from the repository's **Actions**
 tab. Production is served from [hollowyard.com](https://hollowyard.com) through
-a Cloudflare Workers Custom Domain.
+a Cloudflare Workers route while preserving the zone's existing DNS records.
 
 ## Included Shape
 
