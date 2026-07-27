@@ -27,7 +27,8 @@ Workers. Add these repository secrets before merging deployment changes:
 - `CLOUDFLARE_API_TOKEN`: a scoped token with **Workers Scripts: Edit**
 
 The workflow can also be started manually from the repository's **Actions**
-tab.
+tab. Production is served from [hollowyard.com](https://hollowyard.com) through
+a Cloudflare Workers Custom Domain.
 
 ## Included Shape
 
