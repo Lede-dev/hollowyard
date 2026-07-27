@@ -24,10 +24,10 @@ const detailCopy = {
     release: "업데이트",
     availableAt: "판매 스토어",
     storeIntro:
-      "원하는 판매 페이지를 선택하면 새 창에서 해당 에셋으로 이동합니다.",
+      "원하는 판매 채널을 선택하면 새 창에서 등록된 링크로 이동합니다.",
     storeLink: "스토어 열기",
     linkNotice:
-      "에셋 하나에 최대 6개의 독립적인 구매 링크를 연결할 수 있습니다.",
+      "에셋 하나에 최대 6개의 독립적인 구매 링크를 연결할 수 있습니다. 현재 예시 상품은 플랫폼 공식 페이지로 연결됩니다.",
     description: "상품 설명",
     documents: "문서 및 지원",
     documentsIntro: "설치 가이드와 관련 문서를 새 창에서 확인할 수 있습니다.",
@@ -47,10 +47,10 @@ const detailCopy = {
     back: "Back to store",
     release: "Updated",
     availableAt: "Available at",
-    storeIntro: "Choose a purchase page to open this asset in a new tab.",
+    storeIntro: "Choose a channel to open its registered link in a new tab.",
     storeLink: "Open store",
     linkNotice:
-      "Each asset supports up to six independent purchase links.",
+      "Each asset supports up to six independent purchase links. Current sample products open the marketplace homepages.",
     description: "About this asset",
     documents: "Documentation & support",
     documentsIntro: "Open setup guides and related documentation in a new tab.",
