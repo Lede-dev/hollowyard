@@ -19,6 +19,18 @@ const localBindingConfig = {
       pattern: "hollowyard.com/*",
       zone_name: "hollowyard.com",
     },
+    {
+      pattern: "gumroad.hollowyard.com",
+      custom_domain: true,
+    },
+    {
+      pattern: "unityassetstore.hollowyard.com",
+      custom_domain: true,
+    },
+    {
+      pattern: "fab.hollowyard.com",
+      custom_domain: true,
+    },
   ],
   d1_databases: d1
     ? [

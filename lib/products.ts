@@ -75,6 +75,7 @@ export const storefronts: Record<Storefront["id"], Storefront> = {
     id: "fab",
     name: "Fab",
     url: "https://www.fab.com/",
+    profileUrl: "https://fab.hollowyard.com/",
     description: {
       ko: "언리얼 엔진과 실시간 제작 환경을 위한 에셋을 만나는 글로벌 마켓입니다.",
       en: "A global marketplace for Unreal Engine and real-time production assets.",
@@ -84,6 +85,7 @@ export const storefronts: Record<Storefront["id"], Storefront> = {
     id: "unity",
     name: "Unity Asset Store",
     url: "https://assetstore.unity.com/",
+    profileUrl: "https://unityassetstore.hollowyard.com/",
     description: {
       ko: "Unity 프로젝트에 바로 적용할 수 있는 패키지와 리소스를 제공하는 마켓입니다.",
       en: "A marketplace for packages and resources ready to use in Unity projects.",
@@ -93,6 +95,7 @@ export const storefronts: Record<Storefront["id"], Storefront> = {
     id: "gumroad",
     name: "Gumroad",
     url: "https://gumroad.com/",
+    profileUrl: "https://gumroad.hollowyard.com/",
     description: {
       ko: "원본 파일과 독립 배포 상품을 Hollowyard에서 직접 제공하는 채널입니다.",
       en: "Hollowyard's direct channel for source files and independently distributed products.",

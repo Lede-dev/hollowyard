@@ -65,7 +65,36 @@ test("server-renders the active marketplace directory", async () => {
   assert.match(html, /Unity Asset Store/);
   assert.match(html, /Gumroad/);
   assert.match(html, /등록 에셋/);
-  assert.ok(html.includes('href="https://www.fab.com/"'));
+  assert.ok(html.includes('href="https://fab.hollowyard.com/"'));
+  assert.ok(
+    html.includes('href="https://unityassetstore.hollowyard.com/"'),
+  );
+  assert.ok(html.includes('href="https://gumroad.hollowyard.com/"'));
+});
+
+test("redirects storefront subdomains to publisher profiles", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("redirect-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const redirects = [
+    ["gumroad.hollowyard.com", "https://hollowyard.gumroad.com/"],
+    [
+      "unityassetstore.hollowyard.com",
+      "https://assetstore.unity.com/ko-KR/publishers/152490",
+    ],
+    ["fab.hollowyard.com", "https://www.fab.com/sellers/hollowyard"],
+  ];
+
+  for (const [hostname, destination] of redirects) {
+    const response = await worker.fetch(
+      new Request(`https://${hostname}/any-path`),
+      {},
+      { waitUntil() {}, passThroughOnException() {} },
+    );
+
+    assert.equal(response.status, 301);
+    assert.equal(response.headers.get("location"), destination);
+  }
 });
 
 test("server-renders the news index and event detail", async () => {

@@ -2,6 +2,13 @@
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 
+const STOREFRONT_REDIRECTS: Record<string, string> = {
+  "gumroad.hollowyard.com": "https://hollowyard.gumroad.com/",
+  "unityassetstore.hollowyard.com":
+    "https://assetstore.unity.com/ko-KR/publishers/152490",
+  "fab.hollowyard.com": "https://www.fab.com/sellers/hollowyard",
+};
+
 interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
@@ -28,6 +35,11 @@ interface ExecutionContext {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+    const storefrontDestination = STOREFRONT_REDIRECTS[url.hostname];
+
+    if (storefrontDestination) {
+      return Response.redirect(storefrontDestination, 301);
+    }
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
