@@ -22,6 +22,8 @@ export type Storefront = {
   id: "fab" | "unity" | "gumroad" | "itch" | "cgtrader" | "cubebrush";
   name: string;
   url: string;
+  profileUrl?: string;
+  description: LocalizedText;
 };
 
 export type ProductBodySection = {
@@ -73,31 +75,55 @@ export const storefronts: Record<Storefront["id"], Storefront> = {
     id: "fab",
     name: "Fab",
     url: "https://www.fab.com/",
+    description: {
+      ko: "언리얼 엔진과 실시간 제작 환경을 위한 에셋을 만나는 글로벌 마켓입니다.",
+      en: "A global marketplace for Unreal Engine and real-time production assets.",
+    },
   },
   unity: {
     id: "unity",
     name: "Unity Asset Store",
     url: "https://assetstore.unity.com/",
+    description: {
+      ko: "Unity 프로젝트에 바로 적용할 수 있는 패키지와 리소스를 제공하는 마켓입니다.",
+      en: "A marketplace for packages and resources ready to use in Unity projects.",
+    },
   },
   gumroad: {
     id: "gumroad",
     name: "Gumroad",
     url: "https://gumroad.com/",
+    description: {
+      ko: "원본 파일과 독립 배포 상품을 Hollowyard에서 직접 제공하는 채널입니다.",
+      en: "Hollowyard's direct channel for source files and independently distributed products.",
+    },
   },
   itch: {
     id: "itch",
     name: "itch.io",
     url: "https://itch.io/game-assets",
+    description: {
+      ko: "인디 게임 제작자를 위한 도구와 에셋을 제공하는 오픈 마켓입니다.",
+      en: "An open marketplace for tools and assets made for indie game creators.",
+    },
   },
   cgtrader: {
     id: "cgtrader",
     name: "CGTrader",
     url: "https://www.cgtrader.com/",
+    description: {
+      ko: "게임과 시각화를 위한 3D 모델을 제공하는 전문 마켓입니다.",
+      en: "A specialist marketplace for 3D models used in games and visualization.",
+    },
   },
   cubebrush: {
     id: "cubebrush",
     name: "Cubebrush",
     url: "https://cubebrush.co/",
+    description: {
+      ko: "게임 아트와 디지털 제작 리소스를 제공하는 크리에이터 마켓입니다.",
+      en: "A creator marketplace for game art and digital production resources.",
+    },
   },
 };
 

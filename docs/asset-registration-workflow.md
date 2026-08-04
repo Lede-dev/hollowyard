@@ -57,3 +57,24 @@ npm test
 ## 5. 배포
 
 검증이 끝난 변경을 `main`에 반영하면 GitHub Actions가 Cloudflare 배포를 수행합니다. 배포 후 공개 상세 페이지와 구매 링크를 다시 확인합니다.
+
+## 6. 외부 스토어 소개 페이지 링크
+
+스토어 랜딩 페이지에는 상품이 하나 이상 연결된 마켓만 자동으로 표시됩니다. 마켓 이름, 설명, 기본 주소와 Hollowyard 소개 페이지 주소는 `lib/products.ts`의 `storefronts` 레코드에서 관리합니다.
+
+Hollowyard 퍼블리셔 또는 크리에이터 페이지가 개설되면 해당 마켓에 공개 주소를 `profileUrl`로 추가합니다. 그러면 스토어 페이지의 카드가 소개 페이지로 바로 연결되고 버튼 문구도 자동으로 변경됩니다.
+
+```ts
+fab: {
+  id: "fab",
+  name: "Fab",
+  url: "https://www.fab.com/",
+  profileUrl: "https://www.fab.com/sellers/your-public-profile",
+  description: {
+    ko: "...",
+    en: "...",
+  },
+},
+```
+
+`profileUrl`을 등록하기 전에는 해당 마켓의 기본 페이지로 연결되며, Hollowyard 소개 페이지라고 오인되지 않도록 버튼에 `마켓 방문`이라고 표시됩니다.

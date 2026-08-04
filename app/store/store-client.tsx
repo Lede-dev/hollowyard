@@ -43,6 +43,13 @@ const storeCopy = {
     emptyDescription: "검색어를 바꾸거나 다른 카테고리를 선택해 보세요.",
     reset: "필터 초기화",
     newsLink: "공지와 이벤트 보기",
+    storefrontsKicker: "OFFICIAL STOREFRONTS",
+    storefrontsTitle: "Hollowyard 에셋을 만나는 곳.",
+    storefrontsDescription:
+      "현재 에셋이 등록된 외부 마켓을 한곳에서 확인하고 각 스토어 페이지로 바로 이동하세요.",
+    storefrontAssetCount: "등록 에셋",
+    storefrontProfileLink: "Hollowyard 페이지 방문",
+    storefrontMarketLink: "마켓 방문",
     footer: "여러 마켓에 흩어진 할로우야드 에셋을 한곳에서.",
   },
   en: {
@@ -71,6 +78,13 @@ const storeCopy = {
     emptyDescription: "Try another term or choose a different category.",
     reset: "Reset filters",
     newsLink: "View news & events",
+    storefrontsKicker: "OFFICIAL STOREFRONTS",
+    storefrontsTitle: "Find Hollowyard assets worldwide.",
+    storefrontsDescription:
+      "Browse every marketplace currently carrying Hollowyard assets and jump straight to each storefront.",
+    storefrontAssetCount: "Listed assets",
+    storefrontProfileLink: "Visit Hollowyard page",
+    storefrontMarketLink: "Visit marketplace",
     footer: "Every Hollowyard asset. Every marketplace. One index.",
   },
 } as const;
@@ -122,6 +136,25 @@ export default function StoreClient() {
       return second.release.localeCompare(first.release);
     });
   }, [category, language, query, sort]);
+
+  const activeStorefronts = useMemo(() => {
+    const counts = new Map<keyof typeof storefronts, number>();
+
+    products.forEach((product) => {
+      const productStorefronts = new Set(
+        product.purchaseLinks.map((link) => link.storefront),
+      );
+
+      productStorefronts.forEach((storefrontId) => {
+        counts.set(storefrontId, (counts.get(storefrontId) ?? 0) + 1);
+      });
+    });
+
+    return Array.from(counts, ([id, assetCount]) => ({
+      ...storefronts[id],
+      assetCount,
+    }));
+  }, []);
 
   const resetFilters = () => {
     setQuery("");
@@ -280,6 +313,51 @@ export default function StoreClient() {
             </button>
           </div>
         )}
+      </section>
+
+      <section
+        className="storefront-directory"
+        aria-labelledby="storefront-directory-title"
+      >
+        <div className="storefront-directory-heading">
+          <div>
+            <p className="section-kicker">{copy.storefrontsKicker}</p>
+            <h2 id="storefront-directory-title">{copy.storefrontsTitle}</h2>
+          </div>
+          <p>{copy.storefrontsDescription}</p>
+        </div>
+
+        <div className="storefront-directory-grid">
+          {activeStorefronts.map((store, index) => (
+            <a
+              className={`storefront-directory-card storefront-directory-card-${store.id}`}
+              href={store.profileUrl ?? store.url}
+              key={store.id}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <div className="storefront-directory-card-topline">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <div>
+                <p className="storefront-directory-label">MARKETPLACE</p>
+                <h3>{store.name}</h3>
+                <p>{store.description[language]}</p>
+              </div>
+              <div className="storefront-directory-card-footer">
+                <span>
+                  {copy.storefrontAssetCount} {String(store.assetCount).padStart(2, "0")}
+                </span>
+                <strong>
+                  {store.profileUrl
+                    ? copy.storefrontProfileLink
+                    : copy.storefrontMarketLink}
+                </strong>
+              </div>
+            </a>
+          ))}
+        </div>
       </section>
 
       <footer className="store-footer">

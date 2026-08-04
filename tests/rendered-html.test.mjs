@@ -54,6 +54,20 @@ test("server-renders product editorial, documents, and purchase links", async ()
   assert.match(html, /class="storefront-links"/);
 });
 
+test("server-renders the active marketplace directory", async () => {
+  const response = await render("/store");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /class="storefront-directory"/);
+  assert.match(html, /OFFICIAL STOREFRONTS/);
+  assert.match(html, /Fab/);
+  assert.match(html, /Unity Asset Store/);
+  assert.match(html, /Gumroad/);
+  assert.match(html, /등록 에셋/);
+  assert.ok(html.includes('href="https://www.fab.com/"'));
+});
+
 test("server-renders the news index and event detail", async () => {
   const [indexResponse, detailResponse] = await Promise.all([
     render("/news"),
